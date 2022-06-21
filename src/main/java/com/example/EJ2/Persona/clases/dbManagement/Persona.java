@@ -21,7 +21,7 @@ public class Persona {
     @Id
     @GeneratedValue
     @Column(name="ID")
-    private String id;
+    private Integer id;
 
     @Column(name="Usuario")
     private String usuario;
@@ -65,20 +65,6 @@ public class Persona {
 
 
     public Persona(PersonaInputDTO persona) {
-        setId(persona.getId());
-        setUsuario(persona.getUsuario());
-        setPassword(persona.getPassword());
-        setName(persona.getName());
-        setSurname(persona.getSurname());
-        setCompany_email(persona.getCompany_email());
-        setPersonal_email(persona.getPersonal_email());
-        setCity(persona.getCity());
-        setActive(persona.getActive());
-        setCreated_date(persona.getCreated_date());
-        setImage_url(persona.getImage_url());
-        setTermination_date(persona.getTermination_date());
-    }
-    public Persona(PersonaOutputDTO persona) {
         setId(persona.getId());
         setUsuario(persona.getUsuario());
         setPassword(persona.getPassword());

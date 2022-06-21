@@ -56,20 +56,27 @@ public class PersonaService implements PersonaInterface {
     }
 
     @Override
-    public Optional<Persona> findPersonById(int id){
-        return  personaRepositorio.findById(String.valueOf(id));
+    public PersonaOutputDTO findPersonById(int id) {
+        Optional<Persona> p = personaRepositorio.findById(id);
+
+        //guardamos el output
+        PersonaOutputDTO personaOutputDTO = new PersonaOutputDTO(p);
+
+        return  personaOutputDTO;
     }
 
+
     @Override
-    public List<PersonaOutputDTO> findPersonsByUsuario(String usuario) {
-        return null;
+    public List<PersonaOutputDTO> findPersonsByName(String name) {
+        List<PersonaOutputDTO> personas = personaRepositorio.findByName(name);
+        return personas;
     }
 
 
     @Override
     public List<Persona> getAllPersons() {
-
-        return personaRepositorio.findAll();
+        List<Persona> personasDTO =  personaRepositorio.findAll();
+        return personasDTO;
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class PersonaInputDTO {
-    private String id;
+    private Integer id;
     private String usuario;
     private String password;
     private String name;

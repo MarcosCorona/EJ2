@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController()
 public class Controller {
@@ -23,17 +22,22 @@ public class Controller {
         return personaOutputDTO;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/find/persons")
     public List<Persona> getAllPersons(){
-        return personaService.getAllPersons();
-    }
-
-    @GetMapping("{id}")
-    public Optional<Persona> findPersonById(@PathVariable Integer id) throws Exception{
-        Optional<Persona> output =  personaService.findPersonById(id);
+        List<Persona> output =  personaService.getAllPersons();
         return output;
     }
 
+    @GetMapping("{id}")
+    public PersonaOutputDTO findPersonById(@PathVariable Integer id) throws Exception{
+        PersonaOutputDTO output =  personaService.findPersonById(id);
+        return output;
+    }
+    @GetMapping("/find/{name}")
+    public List<PersonaOutputDTO> findPersonByName(@PathVariable String name) throws Exception{
+        List<PersonaOutputDTO> output =  personaService.findPersonsByName(name);
+        return output;
+    }
 
 
 }
