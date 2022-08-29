@@ -1,6 +1,6 @@
-package com.example.EJ2.Persona.clases.dto;
+package com.example.EJ2.persona.infraestructure.dto;
 
-import com.example.EJ2.Persona.clases.dbManagement.Persona;
+import com.example.EJ2.persona.domain.Persona;
 import lombok.Data;
 
 import java.util.Date;
@@ -67,5 +67,20 @@ public class PersonaOutputDTO {
             setImage_url(persona.getImage_url());
             setTermination_date(persona.getTermination_date());
         }
+    }
+
+    public PersonaOutputDTO(PersonaOutputDTO persona) {
+        setId(persona.getId());
+        setUsuario(persona.getUsuario());
+        setPassword(persona.getPassword());
+        setName(persona.getName());
+        setSurname(persona.getSurname());
+        setCompany_email(persona.getCompany_email());
+        setPersonal_email(persona.getPersonal_email());
+        setCity(persona.getCity());
+        setActive(persona.getActive());
+        setCreated_date(persona.getCreated_date());
+        setImage_url(persona.getImage_url());
+        setTermination_date(persona.getTermination_date());
     }
 }
